@@ -1,29 +1,64 @@
 // JavaScript Document
 $(document).ready(function(e) {
-//document.addEventListener("deviceready",function(){
+document.addEventListener("deviceready",function(){
+	var basedatos=window.sqlitePlugin.
+	openDatabase({name: "ColoresBD.db",
+	createFromLocation:1});
 	
-	$('#uno').on('click',function(){
-	//alert('1');
+	cargarnombrejugador();  
+	   function cargarnombrejugador()
+   {
+	   basedatos.transaction(function(ejecutador){
+		   var sql="SELECT NombreUsuario FROM Usuario";
+	 ejecutar.executesql(sql,undifined,function(ejecutar,resultado){
+		  var datosJugador=resultado.row.item(0);
+		  $('#jugador').text(datosJugador.NombreUsuario);
+});
+});
+}
 	
-	$('#numeros').html ($('#numeros').html() + ' 1, ');
-	});
-	$('#dos').on('click',function(){
-	//alert('2');
+	audio=windows.plugins.LowLatencyAudio;
+	audio.preloadFX('B1', 'audio/C.mp3',function(){},
+	function(msg){alert("error "+msg);});
+	audio.preloadFX('B2', 'audio/D.mp3',function(){},
+	function(msg){alert("error "+msg);});
+	audio.preloadFX('B3', 'audio/E.mp3',function(){},
+	function(msg){alert("error "+msg);});
+	audio.preloadFX('B4', 'audio/F.mp3',function(){},
+	function(msg){alert("error "+msg);});
 	
-	$('#numeros').html ($('#numeros').html() + ' 2, ');
-	});
-	$('#tres').on('click',function(){
-	//alert('3');
-	
-	$('#numeros').html ($('#numeros').html() + ' 3, ');
-	});
-	$('#cuatro').on('click',function(){
-	//alert('4');
-	
-	$('#numeros').html ($('#numeros').html() + ' 4, ');
-	});
-	
-	
-//}); 
+	$('#btnjugar').on('tap',function(){
+		
+		var pantalla = $.mobile.getScreenHeight();
+		alert ('Pantalla '+ pantalla);
+		var encabezado = $('.ui-header').outerHeight();
+		alert ('Pantalla '+ encabezado); 
+		var pie = $('.ui-footer').outerHeight();
+		alert ('Pantalla '+ pie);
+		var contenido = $('.ui-content').outerHeight();
+		alert ('Pantalla '+ contenido);
+		var alto = (pantalla- encabezado - pie) / 2;
+		alert ('Pantalla '+ alto);
+		$('.cuadro').height(alto);
+		//alert('Pantalla '+ pantalla);
+		//alert('Encabezado '+ encabezado);
+});//btnjugar.click
+    
+	function quien (q)
+	{
+		audio.play(q);
+		return q.substring(1);
+	}
+   $('.cuadro').on('vmousedown',function(){
+	   $('#pantalla').append(quien($(this).attr('id')));
+	   $(this).addClass('pulsado');
+   });
+   
+   
+    $('.cuadro').on('vmouseup',function(){
+	   $(this).removeClass('pulsado');
+   });
+
+}); 
 });
 
