@@ -1,9 +1,7 @@
 // JavaScript Document
 $(document).ready(function(e) {
 document.addEventListener("deviceready",function(){
-	var basedatos=window.sqlitePlugin.
-	openDatabase({name: "ColoresBD.db",
-	createFromLocation:1});
+	var basedatos=window.sqlitePlugin.openDatabase({name: "ColoresBD.db",createFromLocation:1});
 	
 	cargarnombrejugador();  
 	   function cargarnombrejugador()
@@ -54,20 +52,32 @@ $('#btnguardar').on('tap',function(){
 });
     cargarnombrejugador();
 });
+
+
+function flash (boton)
+{
+	boton.stop().animate({opacity:'0.5'},{
+		duration:80,
+		complete:function(){
+	boton.stop().animate({opacity:'1'},200);
+		}
+});
+}
+		
 	function quien (q)
 	{
 		audio.play(q);
 		return q.substring(1);
 	}
-   $('.cuadro').on('vmousedown',function(){
-	   $('#pantalla').append(quien($(this).attr('id')));
-	   $(this).addClass('pulsado');
-   });
+   //$('.cuadro').on('vmousedown',function(){
+	   //$('#pantalla').append(quien($(this).attr('id')));
+	 //  $(this).addClass('pulsado');
+  // });
    
    
-    $('.cuadro').on('vmouseup',function(){
-	   $(this).removeClass('pulsado');
-   });
+   // $('.cuadro').on('vmouseup',function(){
+	   //$(this).removeClass('pulsado');
+   //});
 
 }); 
 });
