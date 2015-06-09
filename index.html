@@ -4,13 +4,14 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no"/>
  
-  <title>JUGAR</title>
+  <title>Aplicacion 07</title>
 
   <!--grupo CSS-->
   <link rel="stylesheet" href="css/jquery.mobile-1.4.5.min.css" />
   <link rel="stylesheet" href="css/jquery.mobile.icons-1.4.5.min.css" />
   <link rel="stylesheet" href="css/jquery.mobile.structure-1.4.5.min.css" /> 
-        
+  <link rel="stylesheet" href="css/extra.css"/>      
+     
         
 
 
@@ -18,47 +19,64 @@
   <script src="js/jquery-1.11.2.min.js"></script>
   <script src="js/jquery.mobile-1.4.5.min.js"></script>
   <script src="js/acciones.js" type="text/javascript"></script>
-  <!-- <script src="phonegap.js" type="text/javascript"></script> -->
+  <script src="phonegap.js" type="text/javascript"></script>
  </head>
 
  <body>
  
  <!-- Principal -->
- <div data-role="page" id="principal" > 
-   
-  <div data-role="main" class="ui-content" align="center">
-   
-      <br>
-      <a href="#juego" id="btnjugar"  data-transition="pop" class="ui-btn ui-icon-heart ui-btn-icon-right ui-shadow ui-corner-all ui-btn-inline " >Jugar</a>
+ <div data-role="page" id="principal" >   
+  <div data-role="header">
+    <h1>Aplicacion 07</h1>
   </div>
 
-  <div data-role="footer" data-position="fixed">
+  <div data-role="main" class="ui-content">
+      <br>
+     <div id="jugador"></div>
+      <a href="#tablero" id="btnjugar"  data-transition="pop" class="ui-btn ui-icon-heart ui-btn-icon-right ui-shadow ui-corner-all ui-btn-inline " >Jugar</a>
+       <a href="#Configuracion" id="btnconfigurar"  data-transition="pop" class="ui-btn ui-icon-heart ui-btn-icon-right ui-shadow ui-corner-all ui-btn-inline " >configurar</a>
+  </div>
+
+  <div data-role="footer">
     <h1>@Lucy NT</h1>
   </div>
  </div>  
  <!-- Principal -->
- 
-  <!-- Juego -->
- <div data-role="page" id="juego" >   
+  
+ <!-- Tablero -->
+ <div data-role="page" id="tablero" >   
 
-     <div data-role="main" class="ui-content" style=" height:80%;">
-    
-        <div align="center">
-          <div id="uno"    style="color:#FFF; background-color:#F00; width:50%; height:300px; float:left; " ></div>	
-          <div  id="dos"   style="color:#FFF; background-color:#0C0; width:50%; height:300px; float:left;  "></div>	
-          <div  id="tres" style="color:#FFF; background-color:#00F; width:50%; height:300px; float:left;  "></div>	
-          <div  id="cuatro"  style="color:#FFF; background-color:#FF3; width:50%; height:300px; float:left;  "></div>	
-        </div>
-     </div>   
-
-     <div data-role="footer"  >
-      <div data-role="controlgroup" data-type="horizontal" align="center">
-        
-        <div id="numeros" > Pulso:  </div>
-      </div>  
-     </div>
+  <div data-role="main" class="ui-content">
+  </div>
+          <div id="B1"  style="background-color:#00F;" class="cuadro"> &nbsp;</div>	
+          <div  id="B2" style="background-color:#F00;" class="cuadro"> &nbsp;</div>	
+          <div  id="B3" style="background-color:#0F0;" class="cuadro"> &nbsp;</div>
+          <div  id="B4" style="background-color:#FF0;" class="cuadro"> &nbsp;</div>	
+   </div>   
+  <div data-role="footer" data-position="fixed" >
+    <h3><div id="pantalla" > Pulso:  </div></h3>
+   </div>
  </div>  
- <!-- Juego -->
+ <!-- Tablero --> 
+  <!-- Config -->
+ <div data-role="page" id="config" >   
+  <div data-role="header">
+  <h1>Configuracion</h1>
+  </div>
+
+  <div data-role="main" class="ui-content">
+      <br>
+      <input type="text" id="txtnombre" >
+      <br>
+      <a id="btnconfigurar"  data-transition="pop" class="ui-btn ui-icon-mail ui-btn-icon-right ui-shadow ui-corner-all ui-btn-inline " >Configurar</a>
+  </div>
+
+  <div data-role="footer">
+    <a href="#principal" id="btnguardar"  data-transition="pop" class="ui-btn ui-icon-home ui-btn-icon-right ui-shadow ui-corner-all ui-btn-inline " >Inicio</a>
+    <h1>@Lucy NT</h1>
+  </div>
+ </div>  
+ <!-- Config -->                                                 
 
  </body>
 </html> 

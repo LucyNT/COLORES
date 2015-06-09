@@ -43,7 +43,17 @@ document.addEventListener("deviceready",function(){
 		//alert('Pantalla '+ pantalla);
 		//alert('Encabezado '+ encabezado);
 });//btnjugar.click
-    
+
+$('#btnconfigurar').on('tap',function(){
+	$('#txtnombre').val($('#Nombre').text());
+});
+$('#btnguardar').on('tap',function(){
+	var nuevonombre=$('#txtnombre').val();
+	basedatos.transaction(function(consulta){
+		consulta.executeSql("UPDATE Usuario SET NombreUsuario=? WHERE ClaveUsuario='1';",[nuevonombre]);
+});
+    cargarnombrejugador();
+});
 	function quien (q)
 	{
 		audio.play(q);
